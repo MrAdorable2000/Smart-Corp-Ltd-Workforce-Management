@@ -1,0 +1,207 @@
+/* ============ AUTH PAGES ============ */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0F172A;
+    color: #1F2937;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+.auth-bg {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #2563EB 100%);
+    z-index: 0;
+    overflow: hidden;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+}
+.orb-1 {
+    width: 500px; height: 500px;
+    background: #EC4899;
+    top: -100px; left: -100px;
+    animation: float 15s ease-in-out infinite;
+}
+.orb-2 {
+    width: 400px; height: 400px;
+    background: #06B6D4;
+    bottom: -100px; right: -100px;
+    animation: float 18s ease-in-out infinite reverse;
+}
+.orb-3 {
+    width: 300px; height: 300px;
+    background: #F59E0B;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    33% { transform: translate(50px, -30px); }
+    66% { transform: translate(-30px, 30px); }
+}
+
+.auth-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 460px;
+}
+
+.auth-card {
+    background: rgba(255,255,255,.97);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+}
+
+.auth-brand {
+    text-align: center;
+    margin-bottom: 28px;
+}
+.auth-brand i {
+    font-size: 48px;
+    color: #4F46E5;
+    background: #EEF2FF;
+    width: 80px; height: 80px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.auth-brand h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 6px;
+}
+.auth-brand p {
+    font-size: 13px;
+    color: #6B7280;
+    margin: 0;
+}
+
+.auth-heading {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 4px;
+}
+.auth-subheading {
+    color: #6B7280;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+.auth-form .form-control {
+    border-radius: 12px;
+    padding: 14px 16px;
+    border: 1.5px solid #E5E7EB;
+    font-size: 14px;
+    height: auto;
+}
+.auth-form .form-control:focus {
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 4px rgba(79,70,229,.12);
+}
+.auth-form .form-floating > label {
+    padding: 14px 16px;
+    color: #9CA3AF;
+}
+
+.btn-auth {
+    padding: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    background: #4F46E5;
+    border: none;
+    border-radius: 12px;
+    margin-top: 8px;
+    transition: all .2s;
+}
+.btn-auth:hover {
+    background: #4338CA;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(79,70,229,.4);
+}
+
+.toggle-pwd {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 5;
+}
+.toggle-pwd:hover { color: #4F46E5; }
+
+.form-check-input:checked {
+    background-color: #4F46E5;
+    border-color: #4F46E5;
+}
+
+.auth-form a {
+    color: #4F46E5;
+    text-decoration: none;
+    font-weight: 500;
+}
+.auth-form a:hover { text-decoration: underline; }
+
+.demo-creds {
+    margin-top: 28px;
+    padding: 16px;
+    background: #F9FAFB;
+    border-radius: 12px;
+    border: 1px dashed #D1D5DB;
+}
+.demo-creds h6 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: #6B7280;
+    margin-bottom: 12px;
+}
+.cred-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 11px;
+    color: #374151;
+}
+.cred-grid div strong { display: block; color: #4F46E5; margin-bottom: 2px; }
+
+.auth-footer {
+    text-align: center;
+    margin-top: 24px;
+    color: #9CA3AF;
+}
+
+.otp-input-wrap .form-control {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 8px;
+}

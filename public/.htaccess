@@ -1,0 +1,38 @@
+# Apache Rewrite Rules
+RewriteEngine On
+
+# Allow direct access to asset files
+RewriteCond %{REQUEST_URI} ^/smart-attendance/public/(assets|uploads)/ [NC]
+RewriteRule ^ - [L]
+
+# Route everything else through index.php (Front Controller)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+# Security: Prevent directory listing
+Options -Indexes
+
+# Security: Hide .htaccess and other dot files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Security: Protect config & database files
+<FilesMatch "\.(sql|md|json|lock)$">
+    Require all denied
+</FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(self), camera=(self)"
+</IfModule>
+
+# Increase upload size
+php_value upload_max_filesize 20M
+php_value post_max_size 25M
+php_value memory_limit 256M
